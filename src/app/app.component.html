@@ -1,23 +1,79 @@
-<label for="cars">bota zeu zegmento agui:</label>
+<div class="toolbar" role="banner">
+  <img
+    width="40"
+    alt="Angular Logo"
+    src="assets/logo.png"
+  />
+  <span>Calculadora de Recuperação</span>
+    <div class="spacer"></div>
+</div>
 
+<div class="content" role="main">
 
-<form #f="ngForm">
-  <select name="valueCheck" [(ngModel)]="selected"
-    (change)="setSegmento($event)">
-      <option [ngValue]="undefined" disabled> Escolha seu segmento </option>
-      <option *ngFor="let segmento of segmentos" 
-        [value]="segmento" [selected]="segmento == selected">
-        {{ segmento }}
-      </option>
-    </select>
-  <input type="number" placeholder="insira seu faturamento" step="0.01"
-   (change)="setFaturamento($event)">
+  <h1>QUER SABER O QUANTO VOCÊ TEM A RECUPERAR?</h1>
+  <h2>Nossa calculadora fará a ESTIMATIVA do valor que sua empresa tem a receber</h2>
+  <h3>Esses valores podem ser recuperados de forma administrativa, ou seja, sem nenhuma ação judicial</h3>
 
-  <input type="number" placeholder="insira sua renda bruta" step="0.01"
-   (change)="setRendaBruta($event)">
+  <h2>Preencha algumas informações:</h2>
+  <span>(Nenhum dado será armazenado. Apenas utilizado para o cálculo a seguir)</span>
+  <div class="content">
+      <form #f="ngForm">
+        <div class="card">
+          <h3>Informe o segmento do seu negócio: </h3>
+          <select name="valueCheck" [(ngModel)]="selected"
+            (change)="setSegmento($event)">
+              <option [ngValue]="undefined" disabled> Escolha seu segmento </option>
+              <option *ngFor="let segmento of segmentos" 
+                [value]="segmento" [selected]="segmento == selected">
+                {{ segmento }}
+              </option>
+            </select>
+          <br>
+        </div>
+        <div class="card">
+          <h3>Informe seu faturamento mensal:</h3>
+          <input type="number" placeholder="insira seu faturamento" step="0.01"
+          (change)="setFaturamento($event)">
+        </div>
 
-   
-</form>
+        <div class="card">
+          <h3>Informe sua renda bruta anual: </h3>
+          <input type="number" placeholder="insira sua renda bruta" step="0.01"
+          (change)="setRendaBruta($event)">
+        </div>
 
-<button (click)="getValorRecuperado()" >calcular</button> 
-   <h2>MIM DE BABAI: {{valorRecuperado}}</h2>
+        
+        <button class="card card-small" (click)="setValorRecuperado()" tabindex="0">
+          <span><b>Calcular</b></span>
+        </button>
+        
+      </form>
+
+  </div>
+
+  <div class="card-container" *ngIf="valorRecuperado>0">
+    <h2>Aqui está o resultado!</h2>
+    <h3>A partir das informações fornecidas calculamos uma estimativa de recuperação de créditos em face da Receita Federal</h3>
+      <div class="card highlight-card card-small">
+        <h2>Valor aproximado a ser recuperado: R$ {{valorRecuperado}}</h2>
+      </div>
+
+      <span>
+        Possui interesse em recuperar esse dinheiro de volta? VEM COM A AVANTE!
+        E o melhor, você só irá nos pagar uma pequena parcela do valor recuperado e somente quando seu dinheiro estiver na conta.
+      </span>
+
+      <small>*Lembrando, esse valor calculado é um número aproximado e calculado com base nos últimos 5 anos. Ele pode sofrer alterações após uma análise mais aprofundada.</small>
+  
+      <h3>Entre em contato com nossa equipe para iniciarmos a recuperação desses impostos!
+        [card c os contatos aqui]
+      </h3>
+  </div>
+
+  
+
+  <footer>
+  </footer>
+
+</div>
+

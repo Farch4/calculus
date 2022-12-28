@@ -190,13 +190,10 @@ setRendaBruta(event:any){
 
 }
 
- getValorRecuperado(){
-    this.segmento = {nome:"Restaurante", monofasico:0.3, tributado:0.7}
-    this.rendaBruta=400000.0
-    this.faturamento= 70000.0
-    
-
+ setValorRecuperado(){
     this.valorRecuperado= ((this.getDASsemRevisao()-this.getDAScomRevisao())*60)/100
+    this.valorRecuperado = Math.round((this.valorRecuperado + Number.EPSILON) * 100) / 100
+
 }
 
 }
