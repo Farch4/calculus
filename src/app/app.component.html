@@ -8,67 +8,102 @@
     <div class="spacer"></div>
 </div>
 
-<div class="content" role="main">
+<div class="content-main" role="main">
 
-  <h1>QUER SABER O QUANTO VOCÊ TEM A RECUPERAR?</h1>
-  <h2>Nossa calculadora fará a ESTIMATIVA do valor que sua empresa tem a receber</h2>
-  <h3>Esses valores podem ser recuperados de forma administrativa, ou seja, sem nenhuma ação judicial</h3>
-
-  <h2>Preencha algumas informações:</h2>
-  <span>(Nenhum dado será armazenado. Apenas utilizado para o cálculo a seguir)</span>
-  <div class="content">
-      <form #f="ngForm">
-        <div class="card">
-          <h3>Informe o segmento do seu negócio: </h3>
-          <select name="valueCheck" [(ngModel)]="selected"
-            (change)="setSegmento($event)">
-              <option [ngValue]="undefined" disabled> Escolha seu segmento </option>
-              <option *ngFor="let segmento of segmentos" 
-                [value]="segmento" [selected]="segmento == selected">
-                {{ segmento }}
-              </option>
-            </select>
-          <br>
-        </div>
-        <div class="card">
-          <h3>Informe seu faturamento mensal:</h3>
-          <input type="number" placeholder="insira seu faturamento" step="0.01"
-          (change)="setFaturamento($event)">
-        </div>
-
-        <div class="card">
-          <h3>Informe sua renda bruta anual: </h3>
-          <input type="number" placeholder="insira sua renda bruta" step="0.01"
-          (change)="setRendaBruta($event)">
-        </div>
-
-        
-        <button class="card card-small" (click)="setValorRecuperado()" tabindex="0">
-          <span><b>Calcular</b></span>
-        </button>
-        
-      </form>
-
+  <div *ngIf="valorRecuperado==0">
+    <h1 style="margin-top: 4em;">QUER SABER O QUANTO VOCÊ TEM A RECUPERAR?</h1>
+    <h2>Nossa calculadora fará a ESTIMATIVA do valor que sua empresa tem a receber</h2>
+    <h3>Esses valores podem ser recuperados de forma administrativa, ou seja, sem nenhuma ação judicial</h3>
   </div>
 
-  <div class="card-container" *ngIf="valorRecuperado>0">
-    <h2>Aqui está o resultado!</h2>
-    <h3>A partir das informações fornecidas calculamos uma estimativa de recuperação de créditos em face da Receita Federal</h3>
-      <div class="card highlight-card card-small">
-        <h2>Valor aproximado a ser recuperado: R$ {{valorRecuperado}}</h2>
-      </div>
 
-      <span>
-        Possui interesse em recuperar esse dinheiro de volta? VEM COM A AVANTE!
-        E o melhor, você só irá nos pagar uma pequena parcela do valor recuperado e somente quando seu dinheiro estiver na conta.
+  <div class="card-container" style="margin-top: 10em;" *ngIf="valorRecuperado>0" id="result">
+    <h1>Aqui está o resultado!</h1>
+    <h3>A partir das informações fornecidas calculamos uma estimativa de recuperação de créditos em face da Receita Federal</h3>
+    
+    <div style="width: 70%;">
+      <div class="card-column">
+        <h3 style="color: white;">Segmento: {{segmento.nome}}</h3>
+      </div>
+      <div class="card-column">
+        <h3 style="color: white;">Faturamento mensal: R$ {{faturamento}}</h3>
+      </div>
+      <div class="card-column">
+        <h3 style="color: white;">Renda bruta anual: R$ {{rendaBruta}}</h3>
+      </div>
+      
+      <div class="card highlight-card card-small">
+          <h2 style="color: white;  margin: 1em;">Valor aproximado a ser recuperado: R$ {{valorRecuperado}}</h2>
+      </div>
+  </div>
+
+     <span><b>
+          Possui interesse em recuperar esse dinheiro de volta? <a href="#" class="border-blue">Vem com a Avante!</a>
+        </b>
       </span>
 
+      <span><b>
+        E o melhor: você só irá nos pagar uma pequena parcela do valor recuperado e somente quando seu dinheiro estiver na conta.
+      </b>
+    </span>
+
       <small>*Lembrando, esse valor calculado é um número aproximado e calculado com base nos últimos 5 anos. Ele pode sofrer alterações após uma análise mais aprofundada.</small>
-  
-      <h3>Entre em contato com nossa equipe para iniciarmos a recuperação desses impostos!
-        [card c os contatos aqui]
-      </h3>
+
+      <div style="width: 100%;">
+        <button style="background-color: white; cursor: pointer;
+         margin-left: 85%; margin-top: 2em;" class="border-blue" (click)="remakeCalc()" tabindex="0">
+          <img
+          style="margin-right: 0.5em;"
+          width="15"
+          alt="Angular Logo"
+          src="assets/refresh.svg"
+        />          <span style="color: black;"><b>Refazer cálculo</b></span>
+        </button>
+      </div>
   </div>
+
+  <div class="card-container" style="margin: 2em;" *ngIf="valorRecuperado>0" id="result">
+    <h2>Entre em contato com nossa equipe para iniciarmos a recuperação desses impostos!
+    </h2>
+  </div>
+    
+  <div class="content" *ngIf="valorRecuperado==0">
+    <h2>Preencha algumas informações:</h2>
+    <span style="margin-bottom: 2em;">(Nenhum dado será armazenado. Apenas utilizado para o cálculo a seguir)</span>
+      <span *ngIf="messageError!=''" style="color: red;">*{{messageError}}</span>
+        <form #f="ngForm">
+          <div class="card">
+            <h3 style="margin-right: 1em; color: white;">Informe o segmento do seu negócio: </h3>
+            <select name="valueCheck" [(ngModel)]="selected"
+              (change)="setSegmento($event)">
+                <option *ngFor="let segmento of segmentos" style="font-size: 1.2em;"
+                  [value]="segmento" [selected]="segmento == selected">
+                  {{ segmento }}
+                </option>
+              </select>
+            <br>
+          </div>
+          <div class="card">
+            <h3 style="margin-right: 1em; color: white;">Informe seu faturamento mensal:</h3>
+            <h4 style="margin-right: 0.5em; color: white;">R$</h4>
+            <input type="number" placeholder="0.00" step="0.01" min="0.5"
+            (change)="setFaturamento($event)">
+          </div>
+
+          <div class="card">
+            <h3 style="margin-right: 1em; color: white;">Informe sua renda bruta anual: </h3>
+            <h4 style="margin-right: 0.5em;  color: white;">R$</h4>
+            <input type="number" placeholder="0.00" step="0.01" min="0.5"
+            (change)="setRendaBruta($event)">
+          </div>
+        </form>
+        <div style=" flex-direction: row; justify-content: center;align-items: center;">
+          <button class="button card-small" style="cursor: pointer;" (click)="setValorRecuperado()" tabindex="0">
+            <span style="color: white;"><b>Calcular</b></span>
+          </button>
+        </div>
+    </div>
+ 
 
   
 

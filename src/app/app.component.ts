@@ -14,6 +14,7 @@ export class AppComponent implements OnInit{
 
   }
   valorRecuperado=0
+  messageError=''
 
   faturamento: number=0
   rendaBruta: number=0
@@ -191,9 +192,47 @@ setRendaBruta(event:any){
 }
 
  setValorRecuperado(){
-    this.valorRecuperado= ((this.getDASsemRevisao()-this.getDAScomRevisao())*60)/100
-    this.valorRecuperado = Math.round((this.valorRecuperado + Number.EPSILON) * 100) / 100
+   try{
+    if(!this.checkValues()){
+        this.valorRecuperado= ((this.getDASsemRevisao()-this.getDAScomRevisao())*60)/100
+        this.valorRecuperado = Math.round((this.valorRecuperado + Number.EPSILON) * 100) / 100
+      }
+    }catch(e){
+      this.messageError='Ocorreu um erro no processamento dos dados. Por favor, tente novamente.'
+    }
+  }
 
-}
+  checkValues(){
+    this.messageError=''
+    if(this.segmento.nome==''){
+      this.messageError='Por favor, preencha o campo de segmento'
+      return true
+    }
+
+    if(this.faturamento<=0){
+      this.messageError='Por favor, preencha corretamente o campo de faturamento mensal'
+      return true
+    }
+    if(this.rendaBruta<=0){
+      this.messageError= 'Por favor, preencha corretamente o campo de renda bruta anual'
+      return true
+    }
+
+    if(this.rendaBruta>4800000.00){
+      this.messageError= 'O valor da renda bruta excede o ultrapassa o limite do Simples Nacional'
+      return true
+    }
+
+    if(this.faturamento>4800000.00){
+      this.messageError= 'O valor do faturamento mensal excede o ultrapassa o limite do Simples Nacional'
+      return true
+    }
+    
+    return false
+  }
+
+  remakeCalc(){
+    window.location.reload()
+  }
 
 }
