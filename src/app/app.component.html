@@ -1,19 +1,27 @@
 <div class="toolbar" role="banner">
   <img
-    width="40"
+  style="margin: 3em;"
+    width="280"
     alt="Angular Logo"
     src="assets/logo.png"
   />
-  <span>Calculadora de Recuperação</span>
-    <div class="spacer"></div>
+
+  <div class="topnav">
+    <a  href="https://avanteconsultoriatrib.com.br/" style="color: white; margin-right: 1em;">INICIO</a>
+    <a href="https://avanteconsultoriatrib.com.br/services/" style="color: white; margin-right: 1em;">SERVIÇOS</a>
+    <a href="https://avanteconsultoriatrib.com.br/seja-um-parceiro/" style="color: white; margin-right: 1em;">SEJA UM PARCEIRO</a>
+    <a href="https://avanteconsultoriatrib.com.br/faq/" style="color: white; margin-right: 1em;">FAQ</a>
+    <a href="https://avanteconsultoriatrib.com.br/consultoria-tributaria-e-seus-beneficios/" style="color: white; margin-right: 1em;">CONSULTORIA TRIBUTÁRIA</a>
+    <a class="border-blue" href="#" style="color: white; margin-right: 1em;">CALCULADORA</a>
+  </div>
 </div>
 
-<div class="content-main" role="main">
+<div class="content-main" role="main" style="margin-top: 4em;">
 
-  <div *ngIf="valorRecuperado==0">
-    <h1 style="margin-top: 4em;">QUER SABER O QUANTO VOCÊ TEM A RECUPERAR?</h1>
+  <div *ngIf="valorRecuperado==0" class="content">
+    <h1 style="margin-top: 4em;">Calculadora de Recuperação de Créditos</h1>
     <h2>Nossa calculadora fará a ESTIMATIVA do valor que sua empresa tem a receber</h2>
-    <h3>Esses valores podem ser recuperados de forma administrativa, ou seja, sem nenhuma ação judicial</h3>
+    <h3>Esses valores serão recuperados de forma administrativa, ou seja, sem nenhuma ação judicial</h3>
   </div>
 
 
@@ -38,12 +46,12 @@
   </div>
 
      <span><b>
-          Possui interesse em recuperar esse dinheiro de volta? <a href="#" class="border-blue">Vem com a Avante!</a>
+          Possui interesse em recuperar esse dinheiro de volta? <a (click)="scrollDown()" class="border-blue">Vem com a Avante!</a>
         </b>
       </span>
 
       <span><b>
-        E o melhor: você só irá nos pagar uma pequena parcela do valor recuperado e somente quando seu dinheiro estiver na conta.
+        E o melhor: nossa comissão é uma pequena porcentagem sobre o valor recuperado e somente será cobrada no êxito do negócio, quando valor for creditado em sua conta corrente.
       </b>
     </span>
 
@@ -62,15 +70,70 @@
       </div>
   </div>
 
-  <div class="card-container" style="margin: 2em;" *ngIf="valorRecuperado>0" id="result">
-    <h2>Entre em contato com nossa equipe para iniciarmos a recuperação desses impostos!
-    </h2>
+  <!-- -->
+  <div class="card-container" *ngIf="valorRecuperado>0" style="margin: 2em;" id="result">
+    <h2>Entre em contato com nossa equipe para iniciarmos a recuperação desses impostos!</h2>
+    <div style="display: flex; flex-direction: row; justify-content: center;align-items: center;">
+      
+      <a href="https://wa.me/5521983116181">
+        <div class="circle">
+          <img
+              style="margin: 2em;"
+              width="50"
+              src="assets/whatsapp.svg"
+            />   
+        </div>
+      </a>
+
+      <a href="mailto:atendimento@avanteconsultoriatrib.com.br">
+        <div class="circle">
+          <img
+              style="margin: 2em;"
+              width="50"
+              src="assets/email.svg"
+            />   
+        </div>
+      </a>
+
+      <a href="https://www.facebook.com/profile.php?id=100088339837265&mibextid=ZbWKwL">
+        <div class="circle">
+          <img
+              style="margin: 2em;"
+              width="60"
+              src="assets/facebook.png"
+            />   
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/avanteconsult/?igshid=NTdlMDg3MTY">
+        <div class="circle">
+          <img
+              style="margin: 2em;"
+              width="50"
+              src="assets/instagram.svg"
+            />   
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/company/avante-consultoria-tribut%C3%A1ria">
+        <div class="circle">
+          <img
+              style="margin: 2em;"
+              width="50"
+              src="assets/linkedin.svg"
+            />   
+        </div>
+      </a>
+
+    </div>
+
+    
   </div>
     
   <div class="content" *ngIf="valorRecuperado==0">
     <h2>Preencha algumas informações:</h2>
     <span style="margin-bottom: 2em;">(Nenhum dado será armazenado. Apenas utilizado para o cálculo a seguir)</span>
-      <span *ngIf="messageError!=''" style="color: red;">*{{messageError}}</span>
+      <span *ngIf="messageError!=''" style="color: red;"><b>*{{messageError}}</b></span>
         <form #f="ngForm">
           <div class="card">
             <h3 style="margin-right: 1em; color: white;">Informe o segmento do seu negócio: </h3>
@@ -99,6 +162,12 @@
         </form>
         <div style=" flex-direction: row; justify-content: center;align-items: center;">
           <button class="button card-small" style="cursor: pointer;" (click)="setValorRecuperado()" tabindex="0">
+            <img
+            style="margin-right: 0.5em;"
+            width="15"
+            alt="Angular Logo"
+            src="assets/calculator.svg"
+          />  
             <span style="color: white;"><b>Calcular</b></span>
           </button>
         </div>

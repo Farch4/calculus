@@ -6,13 +6,10 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
 
   constructor(){}
 
-  ngOnInit(){
-
-  }
   valorRecuperado=0
   messageError=''
 
@@ -197,9 +194,15 @@ setRendaBruta(event:any){
         this.valorRecuperado= ((this.getDASsemRevisao()-this.getDAScomRevisao())*60)/100
         this.valorRecuperado = Math.round((this.valorRecuperado + Number.EPSILON) * 100) / 100
       }
+      scroll(0,0)
     }catch(e){
       this.messageError='Ocorreu um erro no processamento dos dados. Por favor, tente novamente.'
     }
+  }
+
+  scrollDown(){
+    scroll(0,400)
+
   }
 
   checkValues(){
@@ -219,12 +222,12 @@ setRendaBruta(event:any){
     }
 
     if(this.rendaBruta>4800000.00){
-      this.messageError= 'O valor da renda bruta excede o ultrapassa o limite do Simples Nacional'
+      this.messageError= 'O valor da renda bruta ultrapassa o limite do Simples Nacional'
       return true
     }
 
     if(this.faturamento>4800000.00){
-      this.messageError= 'O valor do faturamento mensal excede o ultrapassa o limite do Simples Nacional'
+      this.messageError= 'O valor do faturamento mensal ultrapassa o limite do Simples Nacional'
       return true
     }
     
