@@ -200,6 +200,17 @@ setRendaBruta(event:any){
     }
   }
 
+  getValorFormatado(value:any){
+    try{
+      let numb= Number(value)
+      return numb.toLocaleString('pt-BR', {minimumFractionDigits: 2});
+    }catch(e){
+      return value
+    }
+ 
+
+  }
+
   scrollDown(){
     scroll(0,400)
 

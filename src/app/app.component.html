@@ -7,12 +7,12 @@
   />
 
   <div class="topnav">
-    <a  href="https://avanteconsultoriatrib.com.br/" style="color: white; margin-right: 1em;">INICIO</a>
-    <a href="https://avanteconsultoriatrib.com.br/services/" style="color: white; margin-right: 1em;">SERVIÇOS</a>
-    <a href="https://avanteconsultoriatrib.com.br/seja-um-parceiro/" style="color: white; margin-right: 1em;">SEJA UM PARCEIRO</a>
-    <a href="https://avanteconsultoriatrib.com.br/faq/" style="color: white; margin-right: 1em;">FAQ</a>
-    <a href="https://avanteconsultoriatrib.com.br/consultoria-tributaria-e-seus-beneficios/" style="color: white; margin-right: 1em;">CONSULTORIA TRIBUTÁRIA</a>
-    <a class="border-blue" href="#" style="color: white; margin-right: 1em;">CALCULADORA</a>
+    <a  href="https://avanteconsultoriatrib.com.br/" style="color: white; margin-right: 2em;">INICIO</a>
+    <a href="https://avanteconsultoriatrib.com.br/services/" style="color: white; margin-right: 2em;">SERVIÇOS</a>
+    <a href="https://avanteconsultoriatrib.com.br/seja-um-parceiro/" style="color: white; margin-right: 2em;">SEJA UM PARCEIRO</a>
+    <a href="https://avanteconsultoriatrib.com.br/faq/" style="color: white; margin-right: 2em;">FAQ</a>
+    <a href="https://avanteconsultoriatrib.com.br/consultoria-tributaria-e-seus-beneficios/" style="color: white; margin-right: 2em;">CONSULTORIA TRIBUTÁRIA</a>
+    <a class="border-blue" href="#" style="color: white; margin-right: 4em;">CALCULADORA</a>
   </div>
 </div>
 
@@ -21,7 +21,7 @@
   <div *ngIf="valorRecuperado==0" class="content">
     <h1 style="margin-top: 4em;">Calculadora de Recuperação de Créditos</h1>
     <h2>Nossa calculadora fará a ESTIMATIVA do valor que sua empresa tem a receber</h2>
-    <h3>Esses valores serão recuperados de forma administrativa, ou seja, sem nenhuma ação judicial</h3>
+    <h3>Esses valores serão recuperados de forma administrativa, ou seja, sem nenhuma ação judicial!</h3>
   </div>
 
 
@@ -34,24 +34,25 @@
         <h3 style="color: white;">Segmento: {{segmento.nome}}</h3>
       </div>
       <div class="card-column">
-        <h3 style="color: white;">Faturamento mensal: R$ {{faturamento}}</h3>
+        <h3 style="color: white;">Faturamento mensal: R$ {{getValorFormatado(faturamento)}}</h3>
       </div>
       <div class="card-column">
-        <h3 style="color: white;">Renda bruta anual: R$ {{rendaBruta}}</h3>
+        <h3 style="color: white;">Renda bruta anual: R$ {{getValorFormatado(rendaBruta)}}</h3>
       </div>
       
       <div class="card highlight-card card-small">
-          <h2 style="color: white;  margin: 1em;">Valor aproximado a ser recuperado: R$ {{valorRecuperado}}</h2>
+          <h2 style="color: white;  margin: 1em;">Valor aproximado a ser recuperado: R$ {{getValorFormatado(valorRecuperado)}}</h2>
       </div>
   </div>
 
-     <span><b>
-          Possui interesse em recuperar esse dinheiro de volta? <a (click)="scrollDown()" class="border-blue">Vem com a Avante!</a>
+     <span style="margin-bottom: 1em;"><b>
+          Possui interesse em recuperar esse dinheiro de volta? <a (click)="scrollDown()" style="cursor:pointer;"
+          class="border-blue">Vem com a Avante!</a>
         </b>
       </span>
 
       <span><b>
-        E o melhor: nossa comissão é uma pequena porcentagem sobre o valor recuperado e somente será cobrada no êxito do negócio, quando valor for creditado em sua conta corrente.
+        E o melhor: nossa comissão é uma pequena porcentagem sobre o valor recuperado e somente será cobrada no êxito do negócio,<br> quando valor for creditado em sua conta corrente.
       </b>
     </span>
 
@@ -59,13 +60,14 @@
 
       <div style="width: 100%;">
         <button style="background-color: white; cursor: pointer;
-         margin-left: 85%; margin-top: 2em;" class="border-blue" (click)="remakeCalc()" tabindex="0">
+         margin-left: 87%; margin-top: 2em;" class="border-blue" (click)="remakeCalc()" tabindex="0">
           <img
           style="margin-right: 0.5em;"
           width="15"
           alt="Angular Logo"
           src="assets/refresh.svg"
-        />          <span style="color: black;"><b>Refazer cálculo</b></span>
+        />          
+        <span style="color: black;"><b>Refazer cálculo</b></span>
         </button>
       </div>
   </div>
@@ -175,9 +177,12 @@
  
 
   
-
-  <footer>
-  </footer>
+    <footer>
+      <span style="color: gray;">©  2023 Avante Consultoria Tributária</span>
+    </footer>
+  
 
 </div>
+
+
 
