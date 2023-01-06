@@ -16,9 +16,27 @@
     font-family: oxygenSans;
   }
 
+  h1{
+    font-size: 7.5vmin;
+    margin-bottom: 1em;
+  }
+
+  h2{
+    font-size: 4.5vmin;
+
+  }
+
+  h3{
+    font-size: 3vmin;
+  }
+
+  h4{
+    font-size: 2.5vmin;
+  }
+
   .topnav{
     font-family: oxygenSans;
-    font-size: 0.9em;
+    font-size: 2vmin;
   }
 
   p {
@@ -26,22 +44,38 @@
     font-family: oxygenSans;
   }
 
+  .subitem{
+    padding-left:20%;
+    padding-bottom: 2%;
+    width: 100%;
+    border-bottom: #8e9dae solid 1px;
+  }
+
 
   span {
     font-family: oxygenSans;
+    font-size: 2.5vmin;
+  }
+
+  a {
+    font-family: oxygenSans;
+    font-size: 2.5vmin;
   }
 
   small{
     color:black;
     font-family: oxygenSans;
+    font-size: 2vmin;
   }
   select{
     height: 2em;
     font-family: oxygenSans;
+    font-size: 2.5vmin;
   }
   input{
     height: 2em;
     font-family: oxygenSans;
+    font-size: 2.5vmin;
   }
 
   .spacer {
@@ -69,25 +103,39 @@
     margin: 0 16px;
   }
 
+  .toolbar-vertical {
+    padding-top: 20%;
+    position: fixed;
+    right: 0;
+    top:0;
+    width: 80%;
+    height: 100% !important;
+    height: 8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #222a34;
+    font-weight: 600;
+    z-index: 1;
+    box-shadow: 0 0 10px black; 
+
+  }
+
+  
+
   .content {
     margin-top: 2em;
     all: unset;
     border-radius: 4px;
     padding: 16px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 90%;
     line-height: 24px;
-  }
-
-  .content-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f5fafd;
-    width: 100%;
-
   }
 
   .card-container {
@@ -103,6 +151,15 @@
     transition: box-shadow .3s;
   }
 
+  .content-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5fafd;
+  }
+
+  
+
   .card-container:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
   }
@@ -111,7 +168,7 @@
     all: unset;
     border-radius: 4px;
     background-color: #03a9f4;
-    margin: 0 8px 16px;
+    margin-top:16px;
     padding: 16px;
     display: flex;
     flex-direction: row;
@@ -119,6 +176,7 @@
     align-items: center;
     transition: box-shadow .3s;
     line-height: 24px;
+    max-width: 95%;
   }
 
   .card-column {
@@ -126,7 +184,7 @@
     border-radius: 4px;
     background-color: #03a9f4;
     margin: 0 8px 16px;
-    padding: 0px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,7 +194,7 @@
   }
 
   .card-column:hover {
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: 0 0 11px black; 
   }
 
   div {
@@ -168,14 +226,22 @@
     border-radius: 4px;
     border: 1px solid #eee;
     background-color: #0276ab;
-    margin: 0 8px 16px;
     padding: 16px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     line-height: 24px;
-    width:25em;
+    width:100%;
+  }
+
+  .row{
+    width: 100%;
+     flex-direction: row; 
+     justify-content: center; 
+     align-items: center; 
+     margin-top: 1em; 
+     flex-wrap: wrap;
   }
 
   .button:hover{
@@ -190,10 +256,6 @@
     margin-right: 0;
   }
 
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
 
   .card.highlight-card {
     background-color: #2a2d56;
@@ -206,8 +268,9 @@
     transition: box-shadow .3s;
   }
 
+
   .card.highlight-card:hover {
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: 0 0 11px black; 
   }
 
   svg#rocket-smoke {
@@ -245,11 +308,6 @@
     .card-container > *:not(.circle-link) ,
     .terminal {
       width: 100%;
-    }
-
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
     }
 
     span{

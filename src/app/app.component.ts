@@ -12,7 +12,7 @@ export class AppComponent{
 
   valorRecuperado=0
   messageError=''
-
+  isOpen=false
   faturamento: number=0
   rendaBruta: number=0
   segmento :  {nome:string, monofasico:number, tributado:number}={
@@ -105,12 +105,10 @@ export class AppComponent{
 }
 
 setFaturamento(event:any){
-  console.log(event.target.value)
   this.faturamento=event.target.value;
 }
 
 setRendaBruta(event:any){
-  console.log(event.target.value)
   this.rendaBruta=event.target.value;
 }
 
@@ -198,6 +196,20 @@ setRendaBruta(event:any){
     }catch(e){
       this.messageError='Ocorreu um erro no processamento dos dados. Por favor, tente novamente.'
     }
+  }
+
+  getIsMobile(){
+    let e= /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    return e
+  }
+
+   openNav() {
+     this.isOpen=true
+    }
+
+  closeNav() {
+    this.isOpen=false
+
   }
 
   getValorFormatado(value:any){
