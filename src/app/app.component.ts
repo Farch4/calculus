@@ -224,7 +224,7 @@ setRendaBruta(event:any){
   }
 
   scrollDown(){
-    scroll(0,400)
+    scroll(0,1000)
 
   }
 

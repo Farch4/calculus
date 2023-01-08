@@ -1,19 +1,23 @@
 <div class="toolbar" role="banner">
 
-  <img *ngIf="!getIsMobile()"
-  style="margin: 3em;"
-    width="280"
-    alt="Angular Logo"
-    src="assets/logo.png"
-  />
-
-  <img *ngIf="getIsMobile()"
-  style="margin: 3em;"
-    width="200"
-    alt="Angular Logo"
-    src="assets/logo.png"
-  />
-
+  <a href="https://avanteconsultoriatrib.com.br/">
+    <img *ngIf="!getIsMobile()"
+    style="margin: 3em;"
+      width="280"
+      src="assets/logo.png"
+      href="https://avanteconsultoriatrib.com.br/"
+    />
+  </a>
+    
+  <a href="https://avanteconsultoriatrib.com.br/">
+    <img *ngIf="getIsMobile()"
+    style="margin: 3em;"
+      width="200"
+      src="assets/logo.png"
+      href="https://avanteconsultoriatrib.com.br/"
+    />
+  </a>
+  
   <img
   width="25"
   src="assets/menu.svg"
@@ -38,7 +42,6 @@
 
     <img
       width="25"
-      alt="Angular Logo"
       src="assets/x.svg"
       style="position: fixed; top:0; right:0"
       (click)="closeNav()"
@@ -46,17 +49,16 @@
     />
     <img
         width="250"
-        alt="Angular Logo"
         src="assets/logo.png"
     />
     <div style="height: 50%; width: 85%; display: flex; flex-direction: column; align-items: center; 
-    justify-content: space-around; margin-top: 10%;">
-      <div class="subitem"><a href="https://avanteconsultoriatrib.com.br/" style="color: white;">INICIO</a></div>
-      <div class="subitem"><a href="https://avanteconsultoriatrib.com.br/services/" style="color: white;">SERVIÇOS</a></div>
-      <div class="subitem"><a href="https://avanteconsultoriatrib.com.br/seja-um-parceiro/" style="color: white;">SEJA UM PARCEIRO</a></div>
-      <div class="subitem"><a href="https://avanteconsultoriatrib.com.br/faq/" style="color: white;">FAQ</a></div>
-      <div class="subitem"><a href="https://avanteconsultoriatrib.com.br/consultoria-tributaria-e-seus-beneficios/" style="color: white;">CONSULTORIA TRIBUTÁRIA</a></div>
-      <div class="subitem"><a href="#" style="color: white;">CALCULADORA</a></div>
+    justify-content: flex-start; margin-top: 10%;">
+      <div class="subitem"><a href="https://avanteconsultoriatrib.com.br/" style="color: white; font-size: 2.5vmin;">INICIO</a></div>
+      <div class="subitem"><a href="https://avanteconsultoriatrib.com.br/services/" style="color: white; font-size: 2.5vmin;">SERVIÇOS</a></div>
+      <div class="subitem"><a href="https://avanteconsultoriatrib.com.br/seja-um-parceiro/" style="color: white; font-size: 2.5vmin;">SEJA UM PARCEIRO</a></div>
+      <div class="subitem"><a href="https://avanteconsultoriatrib.com.br/faq/" style="color: white; font-size: 2.5vmin;">FAQ</a></div>
+      <div class="subitem"><a href="https://avanteconsultoriatrib.com.br/consultoria-tributaria-e-seus-beneficios/" style="color: white; font-size: 2.5vmin;">CONSULTORIA TRIBUTÁRIA</a></div>
+      <div class="subitem" style="background-color: #2d353f;"><a href="#" style="color: white; font-size: 2.5vmin;">CALCULADORA</a></div>
     </div>
       
   </div>
@@ -69,7 +71,7 @@
 
 
   <div class="card-container" style="margin-top: 10em;" *ngIf="valorRecuperado>0" id="result">
-    <h1>Aqui está o resultado!</h1>
+    <h1 style="margin-top: 1em;">Aqui está o resultado!</h1>
     <h3 style="margin-bottom: 2em;">A partir das informações fornecidas calculamos uma estimativa de recuperação de créditos em face da Receita Federal</h3>
     
     <div style="width: 70%;">
@@ -89,7 +91,7 @@
   </div>
 
      <span style="margin-bottom: 1em; margin-top: 1em;"><b>
-          Possui interesse em recuperar esse dinheiro de volta? <a (click)="scrollDown()" style="cursor:pointer;"
+          Possui interesse em recuperar esse dinheiro de volta? <a (click)="scrollDown()" style="cursor:pointer; font-size: 2.5vmin;"
           class="border-blue">Vem com a Avante!</a>
         </b>
       </span>
@@ -109,7 +111,6 @@
           <img
           style="margin-right: 0.5em;"
           width="15"
-          alt="Angular Logo"
           src="assets/refresh.svg"
         />          
         <span style="color: black;"><b>Refazer cálculo</b></span>
@@ -119,7 +120,7 @@
 
   <!-- -->
   <div class="card-container" *ngIf="valorRecuperado>0" style="margin: 2em; max-width: 80%;" id="result">
-    <h2>Entre em contato com nossa equipe para iniciarmos a recuperação desses impostos!</h2>
+    <h2 style="font-size: 3vmin;">Entre em contato com nossa equipe para iniciarmos a recuperação desses impostos!</h2>
     <div style="display: flex; flex-direction: row; justify-content: center;align-items: center; flex-wrap: wrap;">
       
       <a href="https://wa.me/5521983116181">
@@ -212,7 +213,6 @@
             <img
             style="margin-right: 0.5em;"
             width="15"
-            alt="Angular Logo"
             src="assets/calculator.svg"
           />  
             <span style="color: white;"><b>Calcular</b></span>
