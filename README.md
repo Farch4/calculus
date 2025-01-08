@@ -1,5 +1,13 @@
 # Calculus
 
+Simple Credit Recovery Tool, developed for a tax consultancy company website.
+
+Tool link: https://farch4.github.io/calculus/
+
+Wwebsite link (also developed by me): https://avanteconsultoriatrib.com.br/
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
 Projeto simples em angular voltado para o cálculo de recuperação tributária 
