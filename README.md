@@ -4,7 +4,7 @@ Simple Credit Recovery Tool, developed for a tax consultancy company website.
 
 Tool link: https://farch4.github.io/calculus/
 
-Wwebsite link (also developed by me): https://avanteconsultoriatrib.com.br/
+Website link (also developed by me): https://avanteconsultoriatrib.com.br/
 
 
 
